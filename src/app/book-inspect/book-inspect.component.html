@@ -1,18 +1,14 @@
+
 <div *ngIf="book">
-    <h2>{{book.title}}</h2>
-    <div>
-        <label>Id: </label>{{book.id}}
-    </div>
     <div>
         <label>Title: </label>
-        <input [(ngModel)]="book.title" placeholder="title"/>
+        <input [(ngModel)]="book.title" placeholder="title" [disabled]="!editing" />
     </div>
-    <div>
-        <label>About:</label>
-        <input [(ngModel)]="book.about" placeholder="about">
-    </div>
-    <div>
-        <p>Date: {{book.date}}</p>
-    </div>
-    <button (click)="goBack()">Back</button>
+    <h4>{{book.author}}</h4>
+    <img src="{{book.img}}" style="height: 500px;" alt="">
+    <h6 style="margin-top: 30px">{{book.about}}</h6>
+    <button (click)="edit()" class="btn btn-default">Edit</button>
 </div>
+
+<button (click)="goBack()" class="btn btn-danger" style="float:left">Back</button>
+<button (click)="save()" class="btn btn-success" style="float:right">Save</button>

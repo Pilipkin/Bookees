@@ -12,7 +12,8 @@ import {BookService} from "../BookService";
 })
 export class BookInspectComponent implements OnInit {
     private book:Book;
-    constructor(
+    private editing:boolean = false;
+     constructor(
         private bookService:BookService,
         private location:Location,
         private route: ActivatedRoute
@@ -23,7 +24,16 @@ export class BookInspectComponent implements OnInit {
             .subscribe(book => this.book = book)
     }
 
+    save(): void {
+        this.bookService.update(this.book)
+            .then(() => this.goBack());
+    }
+
     goBack():void{
         this.location.back();
+    }
+
+    edit():void{
+         this.editing = !this.editing
     }
 }

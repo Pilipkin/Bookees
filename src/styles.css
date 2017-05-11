@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ffffff;
+    margin: 1em 0;
+    padding: 0;
+}
