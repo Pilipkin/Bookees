@@ -1,8 +1,11 @@
 
 <div *ngIf="book">
-    <div>
+    <div *ngIf="!editing">
+        <h1>{{book.title}}</h1>
+    </div>
+    <div *ngIf="editing">
         <label>Title: </label>
-        <input [(ngModel)]="book.title" placeholder="title" [disabled]="!editing" />
+        <input [(ngModel)]="book.title" placeholder="title" />
     </div>
     <h4>{{book.author}}</h4>
     <img src="{{book.img}}" style="height: 500px;" alt="">

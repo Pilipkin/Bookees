@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
-import { Book } from '../Book';
-import {BookService} from "../BookService";
+import { Book } from '../models/Book';
+import {BookService} from "../services/BookService";
 
 @Component({
     selector: 'book-inspect',

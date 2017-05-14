@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Book} from "./Book";
+import {Book} from "../models/Book";
 import {Http, Headers } from "@angular/http";
 import "rxjs/add/operator/toPromise";
 
@@ -32,6 +32,22 @@ export class BookService{
             .toPromise()
             .then(() => book)
             .catch(this.handleError)
+    }
+
+    create(book:Book): Promise<Book> {
+        return this.http
+            .post(this.booksUrl, JSON.stringify(book), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().data as Book)
+            .catch(this.handleError);
+    }
+
+    delete(id: number): Promise<void> {
+        const url = `${this.booksUrl}/${id}`;
+        return this.http.delete(url, {headers: this.headers})
+            .toPromise()
+            .then(() => null)
+            .catch(this.handleError);
     }
 
     private handleError(error:any):Promise<any>{

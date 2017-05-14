@@ -7,14 +7,14 @@ import { RouterModule, Routes }   from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { InMemoryDataService }  from './services/in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { BookInspectComponent } from './book-inspect/book-inspect.component';
-import { BookService } from './BookService';
+import { BookService } from './services/BookService';
 import { BooksComponent } from './books/books.component';
 import { AddBookComponent } from './add-book/add-book.component';
-import { SearchBookComponent } from './search-book/search-book.component';
+import { BookSearchComponent } from './search-book/book-search.component';
 
 const appRoutes: Routes = [
     { path: 'books', component: BooksComponent },
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
         BookInspectComponent,
         BooksComponent,
         AddBookComponent,
-        SearchBookComponent
+        BookSearchComponent
     ],
     imports: [
         BrowserModule,

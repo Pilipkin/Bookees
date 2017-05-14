@@ -1,13 +1,46 @@
-<!--<button [routerLink]="['/add']">Add Book</button>-->
-
-<search-book></search-book>
-<div class="row">
-    <div class="col-4 " *ngFor="let book of books"  [routerLink]="['/book', book.id]">
-        <div class="single-book">
-            <img src="{{book.img}}" style="height: 200px"> <br>
-            <h4>{{book.title}}</h4>
-            <h6>{{book.author}}</h6>
-            <p>{{book.about.slice(0,55) + '...'}}</p>
+<button class="btn btn-success" style="width:30%; margin-bottom: 20px" (click)="addBook()">AddBook</button>
+<div class="add-book-form-container" *ngIf="ifAdd">
+    <h1>Add Book</h1>
+    {{diagnostic}}
+    <form #bookForm="ngForm">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="model.title" name="title" required >
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" [(ngModel)]="model.author" name="author" id="author" required>
+        </div>
+        <div class="form-group">
+            <label for="about">About</label>
+            <input type="text" class="form-control" [(ngModel)]="model.about" name="about" id="about" required>
+        </div>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="text" class="form-control" [(ngModel)]="model.date" name="date" id="date" required>
+        </div>
+        <div class="form-group">
+            <label for="img">Image</label>
+            <input type="text" class="form-control" [(ngModel)]="model.img" name="img" id="img" required>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid" (click)="add(model); bookForm.reset()">Add</button>
+    </form>
+</div>
+<div *ngIf="!ifAdd">
+    <book-search></book-search>
+    <div class="row">
+        <div class="col-4 " *ngFor="let book of books"  [routerLink]="['/book', book.id]">
+            <div class="single-book">
+                <button type="button" class="close" style="color:white"
+                        (click)="delete(book);
+                         $event.stopPropagation()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img src="{{book.img}}" style="height: 200px"> <br>
+                <h4>{{book.title}}</h4>
+                <h6>{{book.author}}</h6>
+                <p>{{book.about.slice(0,55) + '...'}}</p>
+            </div>
         </div>
     </div>
 </div>
