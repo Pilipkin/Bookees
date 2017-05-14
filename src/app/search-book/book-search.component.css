@@ -1,0 +1,10 @@
+.search{
+    text-align: center;
+}
+
+.search-result{
+    background-color: #424242;
+    color:white;
+    border-bottom: white 1px solid ;
+    padding: 5px;
+}

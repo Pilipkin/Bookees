@@ -1,0 +1,13 @@
+<div id="search-component">
+    <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" class="form-control" #searchBox (keyup)="search(searchBox.value)" name="search" id="search">
+    </div>
+    <div>
+        <div *ngFor="let book of books | async"
+             (click)="gotoDetail(book)" class="search-result" style="width: 50%; margin: 0 auto" >
+            <img src="{{book.img}}" style="height: 40px; float:left" alt="">
+            <h4>{{book.title}},</h4><h6>{{book.author}}</h6>
+        </div>
+    </div>
+</div>
