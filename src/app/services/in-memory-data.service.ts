@@ -1,9 +1,10 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Book } from '../models/Book';
 
 export class InMemoryDataService implements InMemoryDbService {
 
     createDb(){
-        let books = [
+        let books:Book[] = [
             {
                 id:1,
                 title:'To Kill a Mockingbird',
@@ -65,7 +66,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 author:'Charles Dickens',
                 img:'http://cdn-media-2.lifehack.org/wp-content/files/2015/03/twocities.jpg',
                 about:'Following eighteen years as a political prisoner, Dr Manette is released and returns to England with his daughter Lucie. There, two very different men fall in love with Lucie and become entwined in a tale of love and sacrifice.',
-                date:'15.15.15'
+                date:1859
             },
             {
                 id:9,

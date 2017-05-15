@@ -13,13 +13,11 @@ import { AppComponent } from './app.component';
 import { BookInspectComponent } from './book-inspect/book-inspect.component';
 import { BookService } from './services/BookService';
 import { BooksComponent } from './books/books.component';
-import { AddBookComponent } from './add-book/add-book.component';
 import { BookSearchComponent } from './search-book/book-search.component';
 
 const appRoutes: Routes = [
     { path: 'books', component: BooksComponent },
     { path: 'book/:id', component: BookInspectComponent },
-    { path: 'add', component: AddBookComponent},
     { path: '',
         redirectTo: '/books',
         pathMatch: 'full'
@@ -31,7 +29,7 @@ const appRoutes: Routes = [
         AppComponent,
         BookInspectComponent,
         BooksComponent,
-        AddBookComponent,
+
         BookSearchComponent
     ],
     imports: [

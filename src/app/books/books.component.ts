@@ -24,7 +24,7 @@ export class BooksComponent implements OnInit{
 
     getBooks():void{
         this.bookService.getBooks()
-            .then(books=>this.books = books);
+            .then(books => this.books = books);
     }
     add(book:Book): void {
         this.bookService.create(book)
